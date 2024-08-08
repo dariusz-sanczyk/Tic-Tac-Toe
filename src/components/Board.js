@@ -8,8 +8,14 @@ const BoardContainer = styled.div`
   gap: 10px;
 `;
 
-const Board = () => {
-  return <BoardContainer>{<Square />}</BoardContainer>;
+const Board = ({ board, onCellClick }) => {
+  return (
+    <BoardContainer>
+      {board.map((value, index) => (
+        <Square key={index} value={value} onClick={() => onCellClick(index)} />
+      ))}
+    </BoardContainer>
+  );
 };
 
 export default Board;
